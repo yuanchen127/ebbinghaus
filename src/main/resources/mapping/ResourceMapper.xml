@@ -17,6 +17,16 @@
     ID, CREATED_BY, CREATED_TIME, UPDATED_BY, UPDATED_TIME, CONTENT, FIRST_TIME, LAST_TIME, 
     MEMORY, NOTE
   </sql>
+  <select id="listResource" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from resource
+  </select>
+
+  <select id="selectBySql" resultMap="BaseResultMap" parameterType="java.lang.String">
+    ${sql}
+  </select>
+
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

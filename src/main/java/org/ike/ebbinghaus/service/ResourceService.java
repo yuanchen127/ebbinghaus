@@ -3,6 +3,8 @@ package org.ike.ebbinghaus.service;
 import org.ike.ebbinghaus.entity.Resource;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 public interface ResourceService {
     int deleteByPrimaryKey(Integer id);
@@ -16,4 +18,8 @@ public interface ResourceService {
     int updateByPrimaryKeySelective(Resource record);
 
     int updateByPrimaryKey(Resource record);
+
+    List<Resource> listResources();
+
+    List<Resource> selectBySql(String sql);
 }

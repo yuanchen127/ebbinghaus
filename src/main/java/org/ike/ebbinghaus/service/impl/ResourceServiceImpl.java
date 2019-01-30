@@ -6,6 +6,8 @@ import org.ike.ebbinghaus.service.ResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service(value = "resourceService")
 public class ResourceServiceImpl implements ResourceService {
 
@@ -34,5 +36,13 @@ public class ResourceServiceImpl implements ResourceService {
 
     public int updateByPrimaryKey(Resource record) {
         return 0;
+    }
+
+    public List<Resource> listResources() {
+        return null;
+    }
+
+    public List<Resource> selectBySql(String sql) {
+        return resourceMapper.selectBySql(sql);
     }
 }
