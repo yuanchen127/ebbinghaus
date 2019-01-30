@@ -23,10 +23,6 @@
     from resource
   </select>
 
-  <select id="selectBySql" resultMap="BaseResultMap" parameterType="java.lang.String">
-    ${sql}
-  </select>
-
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

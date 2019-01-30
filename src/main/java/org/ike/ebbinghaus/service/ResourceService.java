@@ -20,6 +20,4 @@ public interface ResourceService {
     int updateByPrimaryKey(Resource record);
 
     List<Resource> listResources();
-
-    List<Resource> selectBySql(String sql);
 }

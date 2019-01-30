@@ -18,9 +18,4 @@ public class ResourceController {
     public String add(@RequestBody Resource resource) {
         return String.valueOf(resourceService.insert(resource));
     }
-
-    @RequestMapping(value="/sql",method = RequestMethod.POST)
-    public List selectDefined(String sql) {
-        return resourceService.selectBySql(sql);
-    }
 }

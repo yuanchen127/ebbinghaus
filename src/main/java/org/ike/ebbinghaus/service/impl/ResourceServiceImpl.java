@@ -41,8 +41,4 @@ public class ResourceServiceImpl implements ResourceService {
     public List<Resource> listResources() {
         return null;
     }
-
-    public List<Resource> selectBySql(String sql) {
-        return resourceMapper.selectBySql(sql);
-    }
 }
