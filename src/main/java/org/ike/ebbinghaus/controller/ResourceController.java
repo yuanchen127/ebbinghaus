@@ -14,7 +14,6 @@ import java.util.List;
 @RequestMapping(value = "/resource")
 public class ResourceController {
 
-    @Autowired
     private ResourceService resourceService;
 
     @RequestMapping(value = "/add",method = RequestMethod.POST)

@@ -7,6 +7,7 @@ import java.util.List;
 
 @Repository
 public interface ResourceMapper {
+
     int deleteByPrimaryKey(Integer id);
 
     int insert(Resource record);

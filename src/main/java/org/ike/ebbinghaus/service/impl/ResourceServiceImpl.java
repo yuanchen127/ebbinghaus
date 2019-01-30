@@ -11,7 +11,6 @@ import java.util.List;
 @Service(value = "resourceService")
 public class ResourceServiceImpl implements ResourceService {
 
-    @Autowired
     private ResourceMapper resourceMapper;
 
     public int deleteByPrimaryKey(Integer id) {
