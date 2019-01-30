@@ -19,5 +19,5 @@ public interface ResourceService {
 
     int updateByPrimaryKey(Resource record);
 
-    List<Resource> listResources();
+    List<Resource> listResource();
 }

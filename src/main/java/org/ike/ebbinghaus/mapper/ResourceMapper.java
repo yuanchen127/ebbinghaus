@@ -19,5 +19,5 @@ public interface ResourceMapper {
 
     int updateByPrimaryKey(Resource record);
 
-    List<Resource> listResources();
+    List<Resource> listResource();
 }

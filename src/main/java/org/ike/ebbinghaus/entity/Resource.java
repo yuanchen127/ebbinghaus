@@ -1,12 +1,10 @@
 package org.ike.ebbinghaus.entity;
 
-import lombok.Setter;
-import lombok.Value;
+import lombok.*;
 
 import java.util.Date;
 
-@Value
-@Setter
+@Data
 public class Resource {
     private Integer id;
 

@@ -38,7 +38,7 @@ public class ResourceServiceImpl implements ResourceService {
         return 0;
     }
 
-    public List<Resource> listResources() {
-        return null;
+    public List<Resource> listResource() {
+        return resourceMapper.listResource();
     }
 }

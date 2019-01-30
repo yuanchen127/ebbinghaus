@@ -19,7 +19,7 @@
   </sql>
   <select id="listResource" resultMap="BaseResultMap">
     select
-    <include refid="Base_Column_List" />
+    <include refid="Base_Column_List"/>
     from resource
   </select>
 
