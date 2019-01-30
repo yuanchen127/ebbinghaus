@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.ike.ebbinghaus.mapper.CycleMapper" >
+  <resultMap id="BaseResultMap" type="org.ike.ebbinghaus.entity.Cycle" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="CREATED_BY" property="createdBy" jdbcType="VARCHAR" />
+    <result column="CREATED_TIME" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATED_BY" property="updatedBy" jdbcType="VARCHAR" />
+    <result column="UPDATED_TIME" property="updatedTime" jdbcType="TIMESTAMP" />
+    <result column="UNIT" property="unit" jdbcType="INTEGER" />
+    <result column="INCREMENT" property="increment" jdbcType="INTEGER" />
+    <result column="CAPACITY" property="capacity" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, CREATED_BY, CREATED_TIME, UPDATED_BY, UPDATED_TIME, UNIT, INCREMENT, CAPACITY
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from cycle
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from cycle
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.ike.ebbinghaus.entity.Cycle" >
+    insert into cycle (ID, CREATED_BY, CREATED_TIME, 
+      UPDATED_BY, UPDATED_TIME, UNIT, 
+      INCREMENT, CAPACITY)
+    values (#{id,jdbcType=INTEGER}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
+      #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, #{unit,jdbcType=INTEGER}, 
+      #{increment,jdbcType=INTEGER}, #{capacity,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="org.ike.ebbinghaus.entity.Cycle" >
+    insert into cycle
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="createdBy != null" >
+        CREATED_BY,
+      </if>
+      <if test="createdTime != null" >
+        CREATED_TIME,
+      </if>
+      <if test="updatedBy != null" >
+        UPDATED_BY,
+      </if>
+      <if test="updatedTime != null" >
+        UPDATED_TIME,
+      </if>
+      <if test="unit != null" >
+        UNIT,
+      </if>
+      <if test="increment != null" >
+        INCREMENT,
+      </if>
+      <if test="capacity != null" >
+        CAPACITY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=INTEGER},
+      </if>
+      <if test="increment != null" >
+        #{increment,jdbcType=INTEGER},
+      </if>
+      <if test="capacity != null" >
+        #{capacity,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.ike.ebbinghaus.entity.Cycle" >
+    update cycle
+    <set >
+      <if test="createdBy != null" >
+        CREATED_BY = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null" >
+        UPDATED_BY = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedTime != null" >
+        UPDATED_TIME = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="unit != null" >
+        UNIT = #{unit,jdbcType=INTEGER},
+      </if>
+      <if test="increment != null" >
+        INCREMENT = #{increment,jdbcType=INTEGER},
+      </if>
+      <if test="capacity != null" >
+        CAPACITY = #{capacity,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.ike.ebbinghaus.entity.Cycle" >
+    update cycle
+    set CREATED_BY = #{createdBy,jdbcType=VARCHAR},
+      CREATED_TIME = #{createdTime,jdbcType=TIMESTAMP},
+      UPDATED_BY = #{updatedBy,jdbcType=VARCHAR},
+      UPDATED_TIME = #{updatedTime,jdbcType=TIMESTAMP},
+      UNIT = #{unit,jdbcType=INTEGER},
+      INCREMENT = #{increment,jdbcType=INTEGER},
+      CAPACITY = #{capacity,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
