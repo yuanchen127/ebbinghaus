@@ -1,6 +1,7 @@
 package org.ike.ebbinghaus.controller;
 
 import org.ike.ebbinghaus.entity.Resource;
+import org.ike.ebbinghaus.mapper.ResourceMapper;
 import org.ike.ebbinghaus.service.ResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,6 +15,7 @@ import java.util.List;
 @RequestMapping(value = "/resource")
 public class ResourceController {
 
+    @Autowired
     private ResourceService resourceService;
 
     @RequestMapping(value = "/add",method = RequestMethod.POST)
@@ -25,4 +27,12 @@ public class ResourceController {
     public List listResource() {
         return resourceService.listResource();
     }
+
+
+    @RequestMapping(value="/test")
+    public List test(String sql) {
+        System.out.println(sql);
+        return resourceService.test(sql);
+    }
+
 }

@@ -21,4 +21,6 @@ public interface ResourceMapper {
     int updateByPrimaryKey(Resource record);
 
     List<Resource> listResource();
+
+    List<Resource> test(String sql);
 }

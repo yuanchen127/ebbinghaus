@@ -20,4 +20,6 @@ public interface ResourceService {
     int updateByPrimaryKey(Resource record);
 
     List<Resource> listResource();
+
+    List<Resource> test(String sql);
 }

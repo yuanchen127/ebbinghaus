@@ -11,6 +11,7 @@ import java.util.List;
 @Service(value = "resourceService")
 public class ResourceServiceImpl implements ResourceService {
 
+    @Autowired
     private ResourceMapper resourceMapper;
 
     public int deleteByPrimaryKey(Integer id) {
@@ -39,5 +40,9 @@ public class ResourceServiceImpl implements ResourceService {
 
     public List<Resource> listResource() {
         return resourceMapper.listResource();
+    }
+
+    public List<Resource> test(String sql) {
+        return resourceMapper.test(sql);
     }
 }
