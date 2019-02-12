@@ -7,6 +7,7 @@ import org.ike.ebbinghaus.entity.Cycle;
 import org.ike.ebbinghaus.entity.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 public class Ebbinghaus {
@@ -48,7 +49,6 @@ public class Ebbinghaus {
     }
 
     public Cycle getLastCycle(Resource resource) {
-
         if (cycleList.isEmpty()) {
             return null;
         }
@@ -90,7 +90,15 @@ public class Ebbinghaus {
     }
 
     public Resource Mark(Resource resource, boolean memory) {
+        Cycle lastCycle = getLastCycle(resource);
+        if (lastCycle == null) {
+            return resource;
+        }
+        if (memory) {
 
+        } else {
+            resource.setMark(new BigDecimal(0));
+        }
 
         return resource;
     }
