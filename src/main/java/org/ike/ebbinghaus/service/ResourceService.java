@@ -21,5 +21,5 @@ public interface ResourceService {
 
     List<Resource> listResource();
 
-    List<Resource> test(String sql);
+    List<Resource> sql(String sql);
 }

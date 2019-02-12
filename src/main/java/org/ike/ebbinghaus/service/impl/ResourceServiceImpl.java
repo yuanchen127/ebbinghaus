@@ -42,7 +42,7 @@ public class ResourceServiceImpl implements ResourceService {
         return resourceMapper.listResource();
     }
 
-    public List<Resource> test(String sql) {
-        return resourceMapper.test(sql);
+    public List<Resource> sql(String sql) {
+        return resourceMapper.sql(sql);
     }
 }

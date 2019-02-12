@@ -17,7 +17,7 @@
     ID, CREATED_BY, CREATED_TIME, UPDATED_BY, UPDATED_TIME, CONTENT, FIRST_TIME, LAST_TIME, 
     MEMORY, NOTE
   </sql>
-  <select id="test" resultMap="BaseResultMap">
+  <select id="sql" resultMap="BaseResultMap" parameterType="java.lang.String">
     ${_parameter}
   </select>
   <select id="listResource" resultMap="BaseResultMap">
