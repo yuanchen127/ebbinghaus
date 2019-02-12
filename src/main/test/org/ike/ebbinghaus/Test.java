@@ -1,9 +1,12 @@
 package org.ike.ebbinghaus;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Test {
     public static void main(String[] args) {
-        String s = "false";
-        boolean b = Boolean.valueOf(s);
-        System.out.println(b);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String date = sdf.format(new Date());
+        System.out.println(date);
     }
 }
