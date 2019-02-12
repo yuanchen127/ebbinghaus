@@ -7,10 +7,7 @@ import org.ike.ebbinghaus.entity.Cycle;
 import org.ike.ebbinghaus.entity.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class Ebbinghaus {
 
@@ -50,7 +47,30 @@ public class Ebbinghaus {
         return cycleList;
     }
 
-    public int getIntervalCycle(Resource resource) {
+    public Cycle getLastCycle(Resource resource) {
+
+        if (cycleList.isEmpty()) {
+            return null;
+        }
+        Collections.sort(cycleList, new Comparator<Cycle>() {
+            @Override
+            public int compare(Cycle c1, Cycle c2) {
+                long firstTime = resource.getFirstTime().getTime();
+
+                Calendar var1 = Calendar.getInstance();
+                var1.setTime(resource.getLastTime());
+                var1.add(c1.getUnit(), c1.getIncrement());
+
+                Calendar var2 = Calendar.getInstance();
+                var2.setTime(resource.getLastTime());
+                var2.add(c2.getUnit(), c2.getIncrement());
+
+                return Math.abs(firstTime - var1.getTimeInMillis()) >= Math.abs(firstTime - var2.getTimeInMillis()) ? 0 : -1;
+            }
+        });
+        return cycleList.get(0);
+    }
+    public int getCycleInterval(Resource resource) {
         int interval = 0;
         Date firstTime = resource.getFirstTime();
         for (Cycle cycle : cycleList) {
@@ -67,6 +87,12 @@ public class Ebbinghaus {
             }
         }
         return interval;
+    }
+
+    public Resource Mark(Resource resource, boolean memory) {
+
+
+        return resource;
     }
 
     public void memory(Resource resource, boolean memory) {

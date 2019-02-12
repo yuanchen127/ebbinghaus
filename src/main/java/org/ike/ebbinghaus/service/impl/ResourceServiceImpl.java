@@ -17,7 +17,7 @@ public class ResourceServiceImpl implements ResourceService {
 
     @Override
     public Resource getWarnResource() {
-        String sql = "SELECT * FROM RESOURCE ORDER BY LAST_TIME ASC LIMIT 0,1";
+        String sql = "SELECT * FROM RESOURCE WHERE MEMORY=1 ORDER BY LAST_TIME ASC LIMIT 0,1";
         List<Resource> resultList = null;
         try {
             resultList = resourceDao.sql(sql);
@@ -33,7 +33,7 @@ public class ResourceServiceImpl implements ResourceService {
 
     @Override
     public List<Resource> listWarnResources() {
-        String sql = "SELECT * FROM RESOURCE ORDER BY LAST_TIME ASC";
+        String sql = "SELECT * FROM RESOURCE WHERE MEMORY=1 ORDER BY LAST_TIME ASC";
         List<Resource> resultList = new ArrayList<>();
         try {
             resultList = resourceDao.sql(sql);

@@ -12,10 +12,11 @@
     <result column="LAST_TIME" property="lastTime" jdbcType="TIMESTAMP" />
     <result column="MEMORY" property="memory" jdbcType="VARCHAR" />
     <result column="NOTE" property="note" jdbcType="VARCHAR" />
+    <result column="MARK" property="mark" jdbcType="DECIMAL" />
   </resultMap>
   <sql id="Base_Column_List" >
     ID, CREATED_BY, CREATED_TIME, UPDATED_BY, UPDATED_TIME, CONTENT, FIRST_TIME, LAST_TIME, 
-    MEMORY, NOTE
+    MEMORY, NOTE, MARK
   </sql>
   <select id="sql" resultMap="BaseResultMap" parameterType="java.lang.String">
     ${_parameter}
@@ -39,11 +40,11 @@
     insert into resource (ID, CREATED_BY, CREATED_TIME, 
       UPDATED_BY, UPDATED_TIME, CONTENT, 
       FIRST_TIME, LAST_TIME, MEMORY, 
-      NOTE)
+      NOTE, MARK)
     values (#{id,jdbcType=INTEGER}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
       #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, #{content,jdbcType=VARCHAR}, 
       #{firstTime,jdbcType=TIMESTAMP}, #{lastTime,jdbcType=TIMESTAMP}, #{memory,jdbcType=VARCHAR}, 
-      #{note,jdbcType=VARCHAR})
+      #{note,jdbcType=VARCHAR}, #{mark,jdbcType=DECIMAL})
   </insert>
   <insert id="insertSelective" parameterType="org.ike.ebbinghaus.entity.Resource" >
     insert into resource
@@ -78,6 +79,9 @@
       <if test="note != null" >
         NOTE,
       </if>
+      <if test="mark != null" >
+        MARK,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -109,6 +113,9 @@
       </if>
       <if test="note != null" >
         #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null" >
+        #{mark,jdbcType=DECIMAL},
       </if>
     </trim>
   </insert>
@@ -142,6 +149,9 @@
       <if test="note != null" >
         NOTE = #{note,jdbcType=VARCHAR},
       </if>
+      <if test="mark != null" >
+        MARK = #{mark,jdbcType=DECIMAL},
+      </if>
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
@@ -156,6 +166,7 @@
       LAST_TIME = #{lastTime,jdbcType=TIMESTAMP},
       MEMORY = #{memory,jdbcType=VARCHAR},
       NOTE = #{note,jdbcType=VARCHAR}
+      MARK = #{mark,jdbcType=DECIMAL}
     where ID = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
