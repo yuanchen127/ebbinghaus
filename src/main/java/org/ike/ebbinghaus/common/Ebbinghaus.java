@@ -1,21 +1,24 @@
 package org.ike.ebbinghaus.common;
 
 
+import org.ike.ebbinghaus.dao.CycleDao;
+import org.ike.ebbinghaus.dao.ResourceDao;
 import org.ike.ebbinghaus.entity.Cycle;
 import org.ike.ebbinghaus.entity.Resource;
-import org.ike.ebbinghaus.service.CycleService;
-import org.ike.ebbinghaus.service.ResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 public class Ebbinghaus {
 
     @Autowired
-    private CycleService cycleService;
+    private CycleDao cycleDao;
 
     @Autowired
-    private ResourceService resourceService;
+    private ResourceDao resourceDao;
 
     private static final List<Cycle> cycleList = new ArrayList<>();
     /*static{
@@ -30,7 +33,10 @@ public class Ebbinghaus {
 
     {
         if (cycleList.isEmpty()) {
-            cycleList.addAll(cycleService.listCycle());
+            List<Cycle> cycles = cycleDao.listCycle();
+            if (cycles != null && !cycles.isEmpty()) {
+                cycleList.addAll(cycleDao.listCycle());
+            }
         }
     }
 
@@ -39,7 +45,7 @@ public class Ebbinghaus {
     }
 
     public List flushCycleList() {
-        List<Cycle> cycles = cycleService.listCycle();
+        List<Cycle> cycles = cycleDao.listCycle();
         cycleList.addAll(cycles);
         return cycleList;
     }
@@ -71,31 +77,5 @@ public class Ebbinghaus {
             resource.setFirstTime(now);
         }
         resource.setMemory(String.valueOf(memory));
-    }
-
-    public Resource getWarnResource() {
-        String sql = "SELECT * FROM RESOURCE ORDER BY LAST_TIME ASC LIMIT 0,1";
-        List<Resource> resultList = null;
-        try {
-            resultList = resourceService.sql(sql);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        if (resultList == null || resultList.isEmpty()) {
-            return null;
-        } else {
-            return resultList.get(0);
-        }
-    }
-
-    public List listWarnResource() {
-        String sql = "SELECT * FROM RESOURCE ORDER BY LAST_TIME ASC";
-        List<Resource> resultList = new ArrayList<>();
-        try {
-            resultList = resourceService.sql(sql);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return resultList;
     }
 }

@@ -5,21 +5,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
+@Service(value="resourceService")
 public interface ResourceService {
-    int deleteByPrimaryKey(Integer id);
 
-    int insert(Resource record);
+    Resource getWarnResource();
 
-    int insertSelective(Resource record);
-
-    Resource selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(Resource record);
-
-    int updateByPrimaryKey(Resource record);
-
-    List<Resource> listResource();
-
-    List<Resource> sql(String sql);
+    List<Resource> listWarnResources();
 }

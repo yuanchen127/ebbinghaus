@@ -1,5 +1,6 @@
 package org.ike.ebbinghaus.controller;
 
+import org.ike.ebbinghaus.dao.ResourceDao;
 import org.ike.ebbinghaus.entity.Resource;
 import org.ike.ebbinghaus.service.ResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,23 +16,23 @@ import java.util.List;
 public class ResourceController {
 
     @Autowired
-    private ResourceService resourceService;
+    private ResourceDao resourceDao;
 
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     public String add(@RequestBody Resource resource) {
-        return String.valueOf(resourceService.insert(resource));
+        return String.valueOf(resourceDao.insert(resource));
     }
 
     @RequestMapping(value="/list")
     public List listResource() {
-        return resourceService.listResource();
+        return resourceDao.listResource();
     }
 
 
     @RequestMapping(value="/test")
     public List test(String sql) {
         System.out.println(sql);
-        return resourceService.sql(sql);
+        return resourceDao.sql(sql);
     }
 
 }
