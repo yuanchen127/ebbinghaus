@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/resource")
-@Api("记忆资源相关接口")
+@Api(value="resource", tags = "记忆资源相关接口")
 public class ResourceController {
 
     @Autowired

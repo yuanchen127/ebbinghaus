@@ -1,4 +1,4 @@
-package org.ike.ebbinghaus;
+package org.ike.ebbinghaus.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -31,7 +31,7 @@ public class Swagger2Config {
                 //页面标题
                 .title("Spring Boot 测试使用 Swagger2 构建RESTful API")
                 //创建人
-                .contact(new Contact("ike", "http://www.baidu.com", ""))
+                .contact(new Contact("ike", "http://www.baidu.com", "yuanchen163x@163.com"))
                 //版本号
                 .version("1.0")
                 //描述
