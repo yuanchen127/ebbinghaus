@@ -1,12 +1,10 @@
-package org.ike.ebbinghaus.mapper;
+package org.ike.ebbinghaus.service;
 
 import org.ike.ebbinghaus.entity.Cycle;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
-public interface CycleMapper {
+public interface CycleService {
     int deleteByPrimaryKey(Integer id);
 
     int insert(Cycle record);

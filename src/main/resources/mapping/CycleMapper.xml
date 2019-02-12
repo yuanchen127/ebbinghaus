@@ -14,6 +14,12 @@
   <sql id="Base_Column_List" >
     ID, CREATED_BY, CREATED_TIME, UPDATED_BY, UPDATED_TIME, UNIT, INCREMENT, CAPACITY
   </sql>
+
+  <select id="listCycle" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from cycle
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
