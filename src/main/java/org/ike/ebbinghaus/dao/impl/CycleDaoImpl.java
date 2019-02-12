@@ -49,4 +49,9 @@ public class CycleDaoImpl implements CycleDao {
         List<Cycle> list = cycleMapper.listCycle();
         return list == null ? new ArrayList<>() : list;
     }
+
+    @Override
+    public List<Cycle> sql(String sql) {
+        return cycleMapper.sql(sql);
+    }
 }

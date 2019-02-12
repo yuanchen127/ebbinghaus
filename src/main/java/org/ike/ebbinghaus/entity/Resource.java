@@ -1,10 +1,9 @@
 package org.ike.ebbinghaus.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.*;
+import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
@@ -37,5 +36,5 @@ public class Resource {
 
     private String note;
 
-    private BigDecimal mark;
+    private double mark;
 }

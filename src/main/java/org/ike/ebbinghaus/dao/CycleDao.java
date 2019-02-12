@@ -18,4 +18,6 @@ public interface CycleDao {
     int updateByPrimaryKey(Cycle record);
 
     List<Cycle> listCycle();
+
+    List<Cycle> sql(String sql);
 }

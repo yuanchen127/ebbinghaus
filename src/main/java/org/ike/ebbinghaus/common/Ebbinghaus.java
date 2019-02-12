@@ -19,6 +19,7 @@ public class Ebbinghaus {
     private ResourceDao resourceDao;
 
     private static final List<Cycle> cycleList = new ArrayList<>();
+    private static final double MIN_CAPACITY = 21.10;
     /*static{
         cycleList.add(new Cycle(Calendar.MINUTE, -20, 58.20));
         cycleList.add(new Cycle(Calendar.HOUR, -1, 44.20));
@@ -70,6 +71,7 @@ public class Ebbinghaus {
         });
         return cycleList.get(0);
     }
+
     public int getCycleInterval(Resource resource) {
         int interval = 0;
         Date firstTime = resource.getFirstTime();
@@ -95,9 +97,12 @@ public class Ebbinghaus {
             return resource;
         }
         if (memory) {
-
+            double lastCapacity = lastCycle.getCapacity();
+            if (lastCapacity != MIN_CAPACITY) {
+                resource.setMark(lastCycle.getCapacity());
+            }
         } else {
-            resource.setMark(new BigDecimal(0));
+            resource.setMark(0);
         }
 
         return resource;
@@ -105,11 +110,10 @@ public class Ebbinghaus {
 
     public void memory(Resource resource, boolean memory) {
         Date now = new Date();
-        if (memory) {
-            resource.setLastTime(now);
-        } else {
+        if (!memory) {
             resource.setFirstTime(now);
         }
+        resource.setLastTime(now);
         resource.setMemory(String.valueOf(memory));
     }
 }
