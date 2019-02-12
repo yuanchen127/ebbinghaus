@@ -18,6 +18,9 @@ public class ResourceController {
     @Autowired
     private ResourceDao resourceDao;
 
+    @Autowired
+    private ResourceService resourceService;
+
     @RequestMapping(value = "/add",method = RequestMethod.POST)
     public String add(@RequestBody Resource resource) {
         return String.valueOf(resourceDao.insert(resource));
@@ -29,10 +32,19 @@ public class ResourceController {
     }
 
 
-    @RequestMapping(value="/test")
-    public List test(String sql) {
-        System.out.println(sql);
+    @RequestMapping(value="/sql")
+    public List sql(String sql) {
         return resourceDao.sql(sql);
+    }
+
+    @RequestMapping("/warn")
+    public Resource getWarnResource() {
+        return resourceService.getWarnResource();
+    }
+
+    @RequestMapping("/warn/list")
+    public List listWarnResource() {
+        return resourceService.listWarnResources();
     }
 
 }
