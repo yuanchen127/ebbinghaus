@@ -20,7 +20,7 @@ public class ResourceServiceImpl implements ResourceService {
         String sql = "SELECT * FROM RESOURCE WHERE MEMORY=1 ORDER BY LAST_TIME ASC LIMIT 0,1";
         List<Resource> resultList = null;
         try {
-            resultList = resourceDao.sql(sql);
+            resultList = resourceDao.select(sql);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -36,7 +36,7 @@ public class ResourceServiceImpl implements ResourceService {
         String sql = "SELECT * FROM RESOURCE WHERE MEMORY=1 ORDER BY LAST_TIME ASC";
         List<Resource> resultList = new ArrayList<>();
         try {
-            resultList = resourceDao.sql(sql);
+            resultList = resourceDao.select(sql);
         } catch (Exception e) {
             e.printStackTrace();
         }
