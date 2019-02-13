@@ -1,14 +1,14 @@
 package org.ike.ebbinghaus;
 
 
-        import lombok.extern.slf4j.Slf4j;
-        import org.ike.ebbinghaus.common.Ebbinghaus;
-        import org.ike.ebbinghaus.entity.Resource;
-        import org.junit.runner.RunWith;
-        import org.springframework.boot.test.context.SpringBootTest;
-        import org.springframework.test.context.junit4.SpringRunner;
+import lombok.extern.slf4j.Slf4j;
+import org.ike.ebbinghaus.common.Ebbinghaus;
+import org.ike.ebbinghaus.entity.Resource;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
-        import java.text.SimpleDateFormat;
+import java.text.SimpleDateFormat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -22,5 +22,6 @@ public class Test {
         ebs.memory(resource, true);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         log.info("lastTime=>{}", sdf.format(resource.getLastTime()));
+
     }
 }

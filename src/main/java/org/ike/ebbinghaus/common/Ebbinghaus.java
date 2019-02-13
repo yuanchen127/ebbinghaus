@@ -1,6 +1,5 @@
 package org.ike.ebbinghaus.common;
 
-
 import org.ike.ebbinghaus.dao.CycleDao;
 import org.ike.ebbinghaus.dao.ResourceDao;
 import org.ike.ebbinghaus.entity.Cycle;
