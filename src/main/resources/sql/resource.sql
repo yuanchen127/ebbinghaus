@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50534
 File Encoding         : 65001
 
-Date: 2019-02-13 14:15:11
+Date: 2019-02-13 14:57:46
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -28,8 +28,9 @@ CREATE TABLE `resource` (
   `CONTENT` varchar(3120) DEFAULT NULL COMMENT '记忆内容',
   `FIRST_TIME` datetime DEFAULT NULL COMMENT '第一次记忆正确时间',
   `LAST_TIME` datetime DEFAULT NULL COMMENT '上一次记忆正确时间',
-  `MEMORY` tinyint(1) DEFAULT NULL COMMENT '是否记忆正确',
-  `NOTE` varchar(512) DEFAULT NULL COMMENT '备注',
-  `MARK` decimal(10,5) DEFAULT NULL COMMENT '记忆指数',
+  `MEMORY` tinyint(1) DEFAULT '0' COMMENT '是否记忆正确',
+  `NOTE` varchar(512) DEFAULT NULL COMMENT '卑职',
+  `MARK` decimal(64,5) DEFAULT NULL COMMENT '记忆指数',
+  `ANSWER` varchar(255) DEFAULT NULL COMMENT '答案',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='记忆信息 ';
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COMMENT='记忆信息 ';

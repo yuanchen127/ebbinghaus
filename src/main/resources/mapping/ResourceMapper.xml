@@ -13,10 +13,11 @@
     <result column="MEMORY" property="memory" jdbcType="VARCHAR" />
     <result column="NOTE" property="note" jdbcType="VARCHAR" />
     <result column="MARK" property="mark" jdbcType="DECIMAL" />
+    <result column="ANSWER" property="answer" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     ID, CREATED_BY, CREATED_TIME, UPDATED_BY, UPDATED_TIME, CONTENT, FIRST_TIME, LAST_TIME, 
-    MEMORY, NOTE, MARK
+    MEMORY, NOTE, MARK, ANSWER
   </sql>
   <select id="select" resultMap="BaseResultMap" parameterType="java.lang.String">
     ${_parameter}
@@ -44,7 +45,7 @@
     values (#{id,jdbcType=INTEGER}, #{createdBy,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, 
       #{updatedBy,jdbcType=VARCHAR}, #{updatedTime,jdbcType=TIMESTAMP}, #{content,jdbcType=VARCHAR}, 
       #{firstTime,jdbcType=TIMESTAMP}, #{lastTime,jdbcType=TIMESTAMP}, #{memory,jdbcType=VARCHAR}, 
-      #{note,jdbcType=VARCHAR}, #{mark,jdbcType=DECIMAL})
+      #{note,jdbcType=VARCHAR}, #{mark,jdbcType=DECIMAL}, #{answer,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="org.ike.ebbinghaus.entity.Resource" >
     insert into resource
@@ -82,6 +83,9 @@
       <if test="mark != null" >
         MARK,
       </if>
+      <if test="answer != null" >
+        ANSWER,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -116,6 +120,9 @@
       </if>
       <if test="mark != null" >
         #{mark,jdbcType=DECIMAL},
+      </if>
+      <if test="answer != null" >
+        #{ANSWER,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -152,6 +159,9 @@
       <if test="mark != null" >
         MARK = #{mark,jdbcType=DECIMAL},
       </if>
+      <if test="answer != null" >
+        ANSWER = #{answer,jdbcType=VARCHAR},
+      </if>
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
@@ -165,8 +175,9 @@
       FIRST_TIME = #{firstTime,jdbcType=TIMESTAMP},
       LAST_TIME = #{lastTime,jdbcType=TIMESTAMP},
       MEMORY = #{memory,jdbcType=VARCHAR},
-      NOTE = #{note,jdbcType=VARCHAR}
-      MARK = #{mark,jdbcType=DECIMAL}
+      NOTE = #{note,jdbcType=VARCHAR},
+      MARK = #{mark,jdbcType=DECIMAL},
+      ANSWER = #{answer,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

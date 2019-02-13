@@ -52,4 +52,14 @@ public class ResourceController {
         return resourceService.listWarnResources();
     }
 
+    @RequestMapping(value="/error", method = RequestMethod.GET)
+    public Resource getErrorResource() {
+        return resourceService.getErrorResource();
+    }
+
+    @RequestMapping(value="/error/list", method = RequestMethod.GET)
+    public List listErrorResource() {
+        return resourceService.listErrorResources();
+    }
+
 }

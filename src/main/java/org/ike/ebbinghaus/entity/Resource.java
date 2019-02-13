@@ -41,4 +41,6 @@ public class Resource {
     private String note;
 
     private double mark;
+
+    private String answer;
 }

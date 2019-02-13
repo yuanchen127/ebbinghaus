@@ -11,4 +11,8 @@ public interface ResourceService {
     Resource getWarnResource();
 
     List<Resource> listWarnResources();
+
+    Resource getErrorResource();
+
+    List<Resource> listErrorResources();
 }
