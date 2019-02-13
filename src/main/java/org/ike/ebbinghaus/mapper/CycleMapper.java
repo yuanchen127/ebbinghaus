@@ -21,5 +21,5 @@ public interface CycleMapper {
 
     List<Cycle> listCycle();
 
-    List<Cycle> sql(String sql);
+    List<Cycle> select(String sql);
 }

@@ -22,5 +22,5 @@ public interface ResourceMapper {
 
     List<Resource> listResource();
 
-    List<Resource> sql(String sql);
+    List<Resource> select(String sql);
 }

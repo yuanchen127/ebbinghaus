@@ -19,5 +19,5 @@ public interface ResourceDao {
 
     List<Resource> listResource();
 
-    List<Resource> sql(String sql);
+    List<Resource> select(String sql);
 }

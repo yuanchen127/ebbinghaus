@@ -51,7 +51,7 @@ public class CycleDaoImpl implements CycleDao {
     }
 
     @Override
-    public List<Cycle> sql(String sql) {
-        return cycleMapper.sql(sql);
+    public List<Cycle> select(String sql) {
+        return cycleMapper.select(sql);
     }
 }

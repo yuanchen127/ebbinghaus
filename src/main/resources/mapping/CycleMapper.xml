@@ -14,7 +14,7 @@
   <sql id="Base_Column_List" >
     ID, CREATED_BY, CREATED_TIME, UPDATED_BY, UPDATED_TIME, UNIT, INCREMENT, CAPACITY
   </sql>
-  <select id="sql" resultMap="BaseResultMap" parameterType="java.lang.String">
+  <select id="select" resultMap="BaseResultMap" parameterType="java.lang.String">
     ${_parameter}
   </select>
 

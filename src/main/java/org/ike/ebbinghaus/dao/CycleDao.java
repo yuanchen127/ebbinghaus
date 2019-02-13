@@ -19,5 +19,5 @@ public interface CycleDao {
 
     List<Cycle> listCycle();
 
-    List<Cycle> sql(String sql);
+    List<Cycle> select(String sql);
 }

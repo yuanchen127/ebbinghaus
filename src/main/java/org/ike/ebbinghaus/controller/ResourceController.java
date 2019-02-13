@@ -35,12 +35,11 @@ public class ResourceController {
         return resourceDao.listResource();
     }
 
-
     @ApiOperation(value = "根据自定义sql查询记忆资源信息")
     @ApiImplicitParam(name = "sql", value = "自定义sql", paramType = "query", required = true, dataType = "String")
-    @RequestMapping(value="/sql",method = RequestMethod.POST)
-    public List sql(String sql) {
-        return resourceDao.sql(sql);
+    @RequestMapping(value="/select",method = RequestMethod.POST)
+    public List select(String sql) {
+        return resourceDao.select(sql);
     }
 
     @RequestMapping(value = "/warn", method = RequestMethod.GET)

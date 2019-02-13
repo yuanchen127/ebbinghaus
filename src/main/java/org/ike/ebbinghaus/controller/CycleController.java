@@ -33,10 +33,8 @@ public class CycleController {
         return cycleService.init();
     }
 
-    @RequestMapping(value="/delete", method = RequestMethod.GET)
-    public int sql() {
-        String sql = "select * from cycle";
-        Object count = cycleDao.sql(sql);
-        return (Integer) count;
+    @RequestMapping(value="/select", method = RequestMethod.POST)
+    public List select(String sql) {
+        return  cycleDao.select(sql);
     }
 }

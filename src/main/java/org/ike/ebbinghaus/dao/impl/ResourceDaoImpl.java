@@ -43,8 +43,8 @@ public class ResourceDaoImpl implements ResourceDao {
         return list == null ? new ArrayList<>() : list;
     }
 
-    public List<Resource> sql(String sql) {
-        List<Resource> list = resourceMapper.sql(sql);
+    public List<Resource> select(String sql) {
+        List<Resource> list = resourceMapper.select(sql);
         return list == null ? new ArrayList<>() : list;
     }
 }
