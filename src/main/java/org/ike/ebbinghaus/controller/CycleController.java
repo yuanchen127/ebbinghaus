@@ -21,7 +21,7 @@ public class CycleController {
     @Autowired
     private CycleService cycleService;
 
-    @ApiOperation("查询记忆周期列表1")
+    @ApiOperation("查询记忆周期列表")
     @RequestMapping(value="/list", method = RequestMethod.GET)
     public List listCycle() {
         return cycleDao.listCycle();
