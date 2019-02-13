@@ -29,7 +29,7 @@ CREATE TABLE `resource` (
   `FIRST_TIME` datetime DEFAULT NULL COMMENT '第一次记忆正确时间',
   `LAST_TIME` datetime DEFAULT NULL COMMENT '上一次记忆正确时间',
   `MEMORY` tinyint(1) DEFAULT NULL COMMENT '是否记忆正确',
-  `NOTE` varchar(512) DEFAULT NULL COMMENT '卑职',
-  `MARK` decimal(64,5) DEFAULT NULL,
+  `NOTE` varchar(512) DEFAULT NULL COMMENT '备注',
+  `MARK` decimal(10,5) DEFAULT NULL COMMENT '记忆指数',
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='记忆信息 ';
