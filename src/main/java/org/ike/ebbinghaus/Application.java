@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+@ServletComponentScan
 @SpringBootApplication
 @EnableTransactionManagement
 @MapperScan("org.ike.ebbinghaus.mapper")
-@ServletComponentScan
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
