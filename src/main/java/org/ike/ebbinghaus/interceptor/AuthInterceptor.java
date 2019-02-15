@@ -12,6 +12,8 @@ public class AuthInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         log.info("===== LoginInterceptor preHandle =====");
+
+        response.sendRedirect("http://localhost:8000/actuator");
         return true;
     }
 

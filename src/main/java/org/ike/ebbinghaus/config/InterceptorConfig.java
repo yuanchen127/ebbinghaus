@@ -17,7 +17,7 @@ public class InterceptorConfig extends WebMvcConfigurationSupport {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         // 自定义拦截器，添加拦截路径和排除拦截路径
-        registry.addInterceptor(getAuthInterceptor()).addPathPatterns("/**").excludePathPatterns("/");
+        registry.addInterceptor(getAuthInterceptor()).addPathPatterns("/**").excludePathPatterns("/login","/register");
         super.addInterceptors(registry);
     }
 }
